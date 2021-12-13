@@ -6,17 +6,18 @@ struct polynomial{
 };
 struct polynomial expon[10];
 int main(){
-	int i,greatest;
-	printf("Enter the greatest expontial\n");
-	scanf("%d",&greatest);
-	for(i=greatest;i>=0;i--){
-		printf("Enter the coefficient of x^(%d) :- ",i);
+	int i,terms;
+	printf("Enter the  no.of terms\n");
+	scanf("%d",&terms);
+	for(i=0;i<terms;i++){
+		printf("\n\nEnter the coefficient of term %d :- ",i);
 		scanf("%d",&expon[i].coefficient);
-		expon[i].exponent=i;
+		printf("\nEnter the exponent of term %d :- ",i);
+		scanf("%d",&expon[i].exponent);
 	}
 	printf("Your Polynomial Expression is \n");
-	for(i=greatest;i>=0;i--){
-		printf("%d x^(%d) + ",expon[i].coefficient,expon[i].exponent);
+	for(i=0;i<terms;i++){
+		printf("%d (x^%d) + ",expon[i].coefficient,expon[i].exponent);
 	}
 }
 
