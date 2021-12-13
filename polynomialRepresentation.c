@@ -1,3 +1,10 @@
+/*****************************************************************************************************
+$ NAME - polynomialRepresentation.c                                                                  *           
+$ CREATOR - JOHNS RAJU                                                                               *
+$ PROGRAM -  To represent a polynomial                                                               *
+$ DATE - 13/12/2021                                                                                  *
+$ VERSION - 1.0                                                                                      *
+*****************************************************************************************************/
 #include<stdio.h>
 #define MAX 10
 struct polynomial{
