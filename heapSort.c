@@ -1,7 +1,7 @@
 #include<stdio.h>
 void printArray(int[],int);
 void heapify(int[],int,int);
-void heap(int[],int);
+void heapSort(int[],int);
 
 int main(){
     int size,i,myArray[20];
@@ -15,38 +15,36 @@ int main(){
     printf("Your unsorted array :- \n");
     printArray(myArray,size);
     printf("\nYour sorted array :- \n");
-    heap(myArray,size);
+    heapSort(myArray,size);
     printArray(myArray,size);
     return 0;
 }
-void heap(int array[20],int size){
-    int temp,i;
-    for(int i=size-1;i>=0;i--){
-        heapify(array,size,i);
-    }
-    for(int i=size-1;i>=0;i--){
-        temp=array[0];
-        array[0]=array[i];
-        array[i]=temp;
-        heapify(array,i,0);
-    }
-}
-void heapify(int array[],int size,int root){
-    int leftChild,rightChild,largest,temp;
-    largest=root;
-    leftChild=2*root+1;
-    rightChild=2*root+2;
-    if(rightChild<=size && array[rightChild]>=array[largest]){
-        largest=rightChild;
-    }
-    if(largest!=root){
-        temp=array[root];
-        array[root]=array[largest];
-        array[largest]=temp;
+void heapify(int array[], int n, int i) { 
+    int largest = i; 
+    int left = 2 * i + 1; 
+    int right = 2 * i + 2; 
+    if (left < n && array[left] > array[largest]) 
+        largest = left; 
+    if (right < n && array[right] > array[largest]) 
+        largest = right; 
+    if (largest != i) { 
+        int temp = array[i]; 
+        array[i] = array[largest]; 
+        array[largest] = temp;  
+        heapify(array, n, largest); 
+    } 
+} 
+void heapSort(int array[], int n) { 
+    for (int i = n / 2 - 1; i >= 0; i--) 
+        heapify(array, n, i); 
+    for (int i = n - 1; i >= 0; i--) { 
+        int temp = array[0]; 
+        array[0] = array[i]; 
+        array[i] = temp; 
+        heapify(array, i, 0); 
+    } 
+} 
 
-        heapify(array,size,largest);
-    }
-}
 void printArray(int array[20],int size){
     int i;
     for(i=0;i<size;i++){
