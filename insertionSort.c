@@ -1,5 +1,5 @@
 #include <stdio.h>
-void selectionSort(int [],int);
+void insertionSort(int [],int);
 void printArray(int [],int);
 int main(){
     int noOfElements,i,myArray[22];
@@ -9,14 +9,14 @@ int main(){
         printf("\n Element %d :- ",i+1);
         scanf("%d",&myArray[i]);
     }
-    printf("\n Unsorted Given Array :- \n");
+    printf("\nUnsorted Given Array :- \n");
     printArray(myArray,noOfElements);
-    selectionSort(myArray,noOfElements);
-    printf("Sorted Array :-\n");
+    insertionSort(myArray,noOfElements);
+    printf("\nSorted Array :-\n");
     printArray(myArray,noOfElements);
     return 0;
 }
-void selectionSort(int array[20],int size){
+void insertionSort(int array[20],int size){
     int i,j,temp,value;
     for(i=1;i<size;i++){
         j=i-1;
