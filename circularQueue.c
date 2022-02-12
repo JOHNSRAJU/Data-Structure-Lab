@@ -63,9 +63,11 @@ void dequeue(int queue[MAX]){
 }
 void display(int queue[MAX]){
     int i=front;
-    while(i!=rear){
+    printf("Your Queue :-\n");
+    while(i!=rear && front!=-1 && rear!=-1){
         printf("%d, ",queue[i]);
         i = ((i+1) % MAX);
+    }if(front!=-1){
+        printf("%d",queue[rear]);
     }
-	printf("%d",queue[rear]);
 }
