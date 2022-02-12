@@ -1,22 +1,20 @@
 #include<stdio.h>
-int i;
-int max=10;
-void push(int[],int);
-void pop(int[],int);
+#define MAX 5
+int i,top=-1;
+void push(int[]);
+void pop(int[]);
 
 int main(){
-	int myStack[10],option,top=-1;
+	int myStack[MAX],option;
 	do{
 		printf("\n\n\nChoose your option\n");
 		printf("1.Push Operation\n2.Pop Operation\n3.Exit\n");
 		scanf("%d",&option);
 		if(option==1){
-			push(myStack,top);
-			top++;
+			push(myStack);
 		}
 		else if(option==2){
-			pop(myStack,top);
-			top=top-1;
+			pop(myStack);
 		}
 		else{
 		printf("\nThank u");
@@ -25,9 +23,9 @@ int main(){
 	return 0;
 }
 
-void push(int stackArray[10],int top){
+void push(int stackArray[MAX]){
 
-	if(top==max){
+	if(top==MAX-1){
 		printf("Stack is full\n");
 	}
 	else{
@@ -41,7 +39,7 @@ void push(int stackArray[10],int top){
 	}
 	
 }
-void pop(int stackArray[10],int top){
+void pop(int stackArray[MAX]){
 	if(top<0){
 		printf("Stack is empty\n");
 	}
